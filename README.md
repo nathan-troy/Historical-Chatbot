@@ -1,2 +1,2 @@
-# Historical-Chatbot
-A full-stack interactive chatbot application that brings a historical figure to life. 
+# Emperor Norton Chatbot
+A full-stack interactive chatbot application that brings Emperor Norton back to life. 
