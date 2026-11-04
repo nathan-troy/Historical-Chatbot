@@ -2,16 +2,23 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 export default function App() {
+  // Contains the history of the convo as an array of msg objects
   const [messages, setMessages] = useState([
     { id: 1, sender: "bot", text: "Speak." }
   ]);
   const [input, setInput] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   // Auto-scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, isTyping]);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   const handleSend = (e) => {
     e.preventDefault();
@@ -23,6 +30,7 @@ export default function App() {
     
     const currentInput = input;
     setInput("");
+    setIsTyping(true);
 
     // Placeholder bot response (to be replaced by the actual logic)
     setTimeout(() => {
@@ -32,13 +40,20 @@ export default function App() {
         text: `The Emperor acknowledges: "${currentInput}"` 
       };
       setMessages((prev) => [...prev, botMessage]);
-    }, 600);
+      setIsTyping(false);
+    }, 1000); //simulated delay (1000ms) before response
+  };
+
+  const handleClear = () => {
+    setMessages([{ id: Date.now(), sender: "bot", text: "Speak."}]);
+    inputRef.current?.focus();
   };
 
   return (
     <div className="chat-container">
       <header className="chat-header">
         <h1>Speak to Emperor Norton</h1>
+        <button onClick={handleClear} className="clear-btn" title="Reset Chat">Reset</button>
       </header>
 
       <div className="chat-window">
@@ -49,11 +64,22 @@ export default function App() {
             </div>
           </div>
         ))}
+        {/* '...' as norton types */}
+        {isTyping && (
+          <div className="message-row bot">
+            <div className="message-bubble typing-bubble">
+              <span>.</span><span>.</span><span>.</span>
+            </div>
+          </div>
+        )}
+
+
         <div ref={messagesEndRef} />
       </div>
 
       <form onSubmit={handleSend} className="input-area">
         <input
+          ref={inputRef}
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -64,3 +90,5 @@ export default function App() {
     </div>
   );
 }
+
+
