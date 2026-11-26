@@ -1,0 +1,76 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.settings-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background-color: #fcf7ea;
+  border: 2px solid #b59e7a;
+}
+
+.setting-item strong {
+  display: block;
+  font-variant: small-caps;
+  font-size: 1rem;
+  color: #162647;
+}
+
+.setting-item p {
+  margin: 3px 0 0 0;
+  font-size: 0.85rem;
+  color: #4a3825;
+}
+
+.setting-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #162647;
+  cursor: pointer;
+}
+
+.setting-item select {
+  padding: 6px 10px;
+  background-color: #fbf6e9;
+  border: 1px solid #8b7355;
+  color: #26190d;
+  font-family: inherit;
+}
+
+.settings-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.imperial-btn {
+  padding: 8px 14px;
+  background-color: #162647;
+  color: #f5d77f;
+  border: 1px solid #c59b27;
+  font-variant: small-caps;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.imperial-btn:hover {
+  background-color: #233b6b;
+}
+
+.imperial-btn.danger {
+  background-color: #6b1d1d;
+  color: #f5ebd6;
+}
