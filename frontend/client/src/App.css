@@ -394,3 +394,108 @@ input {
   display: block;
 }
 
+/* Header Online (Green) / Offline (Red) / Banished (Gold) Dot */
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.court-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-variant: small-caps;
+  padding: 2px 9px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-online {
+  color: #a3f7b5;
+}
+.status-online .status-dot {
+  background-color: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.status-offline {
+  color: #fca5a5;
+}
+.status-offline .status-dot {
+  background-color: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+}
+
+.status-banished {
+  color: #fde047;
+}
+.status-banished .status-dot {
+  background-color: #eab308;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #0d1321;
+}
+
+body.dark-mode .chat-container,
+body.dark-mode .chat-window,
+body.dark-mode .settings-page {
+  background-color: #182032;
+  color: #f5ebd6;
+}
+
+body.dark-mode .name-bar,
+body.dark-mode .name-status,
+body.dark-mode .input-area {
+  background-color: #121929;
+  color: #e5dcc5;
+  border-color: #3a4664;
+}
+
+body.dark-mode .bot .message-bubble,
+body.dark-mode .setting-item {
+  background-color: #222d45;
+  color: #f5ebd6;
+  border-color: #c59b27;
+}
+
+body.dark-mode .setting-item strong {
+  color: #f5d77f;
+}
+
+body.dark-mode .setting-item p,
+body.dark-mode .message-row.bot .sender-tag {
+  color: #d6c7a9;
+}
+
+body.dark-mode .message-row.user .sender-tag,
+body.dark-mode .edit-name-btn {
+  color: #f5d77f;
+}
+
+/* Text Size Accessibility Scaling */
+html[data-text-scale="normal"] {
+  font-size: 16px;
+}
+
+html[data-text-scale="large"] {
+  font-size: 18.5px;
+}
+
+html[data-text-scale="xlarge"] {
+  font-size: 21px;
+}
+
+
